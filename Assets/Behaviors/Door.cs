@@ -14,6 +14,8 @@ public class Door : MonoBehaviour {
   }
 
   void OnTriggerEnter2D(Collider2D other) {
+    if (!enabled) return;
+
     var player = other.GetComponent<Player>();
 
     if (beforeEnter != null) beforeEnter();

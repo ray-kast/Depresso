@@ -20,5 +20,16 @@ public class HubLevelManager : MonoBehaviour {
         blueDoor.gameObject.SetActive(false);
         goto case GameProgress.Green;
     }
+
+    switch (GameManager.Instance.Progress) {
+      case GameProgress.Blue: break;
+      case GameProgress.Green: break; // TODO: Disable last level somehow
+      case GameProgress.Red:
+        blueDoor.enabled = false;
+        goto case GameProgress.Green;
+      case GameProgress.None:
+        greenDoor.enabled = false;
+        goto case GameProgress.Red;
+    }
   }
 }

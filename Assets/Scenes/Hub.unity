@@ -267,6 +267,21 @@ Prefab:
       propertyPath: levelName
       value: Scenes/Level2
       objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e720ead8a266f7b4c83c71f65e141168, type: 2}
   m_IsPrefabParent: 0
@@ -312,6 +327,21 @@ Prefab:
     - target: {fileID: 1719689756181052, guid: e720ead8a266f7b4c83c71f65e141168, type: 2}
       propertyPath: m_Name
       value: RedDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e720ead8a266f7b4c83c71f65e141168, type: 2}
@@ -454,6 +484,21 @@ Prefab:
         type: 2}
       propertyPath: levelName
       value: Scenes/Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e720ead8a266f7b4c83c71f65e141168, type: 2}
