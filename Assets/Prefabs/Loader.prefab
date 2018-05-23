@@ -53,3 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1357137023083356, guid: 40211ca549a570045a6637eabb79c921,
     type: 2}
+  player: {fileID: 1217175710650548, guid: 54edcfb35e2b3174484c98ed59fed0bf, type: 2}
+  camera: {fileID: 1411453638696880, guid: c0008b0bc49dccd4bae189008fa7d6da, type: 2}
