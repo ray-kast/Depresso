@@ -18,6 +18,8 @@ public class Platform : MonoBehaviour {
     origin = transform.position;
     var body = GetComponent<Rigidbody2D>();		
     body.velocity = new Vector3(xVelocity, 0.0f, 0.0f);
+    Debug.Log("Start");    
+    
   }
   
   void Update () {
@@ -39,9 +41,10 @@ public class Platform : MonoBehaviour {
   }
 
   void OnCollisionEnter(Collision otherObj) {
-    // Debug.Log(otherObj.gameObject.tag);
+    Debug.Log("Enter");    
+    Debug.Log(otherObj.gameObject.tag);
     // if (otherObj.gameObject.name == "Hero") {
-      Destroy(gameObject,.5f);
+      // Destroy(gameObject,.5f);
     // }
   }
 }
