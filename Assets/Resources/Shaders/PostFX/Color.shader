@@ -4,6 +4,7 @@ Shader "Hidden/PostFX/Color" {
     _Fac1("Factor R", Float) = 0.0
     _Fac2("Factor G", Float) = 0.0
     _Fac3("Factor B", Float) = 0.0
+    _Gray("Gray Color", Color) = (1.0, 1.0, 1.0, 1.0)
   }
 
   CGINCLUDE
@@ -11,6 +12,7 @@ Shader "Hidden/PostFX/Color" {
   #pragma target 3.0
 
   float _Fac1, _Fac2, _Fac3;
+  float4 _Gray;
 
   ENDCG
 
@@ -76,7 +78,11 @@ Shader "Hidden/PostFX/Color" {
                              (1.0f - _Fac2) * comps.y,
                              (1.0f - _Fac3) * comps.z);
 
-        col.rgb = linearToSrgb(sat + (gray.r + gray.g + gray.b) / 3.0f);
+        // Rec.601:  (0.2989, 0.5870, 0.1140)
+        // Rec.709:  (0.2126, 0.7152, 0.0722)
+        // Rec.2020: (0.2627, 0.6780, 0.0593)
+
+        col.rgb = linearToSrgb(sat + _Gray.rgb * (0.2989 * gray.r + 0.5870 * gray.g + 0.1140 * gray.b));
 
         return col;
       }

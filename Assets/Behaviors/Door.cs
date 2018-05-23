@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
   public string levelName;
+  public bool autoActivate;
+  bool colliding = false;
 
   event Action beforeEnter;
 
@@ -13,15 +15,31 @@ public class Door : MonoBehaviour {
     remove { beforeEnter -= value; }
   }
 
-  void OnTriggerEnter2D(Collider2D other) {
-    if (!enabled) return;
-
-    var player = other.GetComponent<Player>();
-
+  void Activate() {
     if (beforeEnter != null) beforeEnter();
 
-    if (player != null) {
-      GameManager.Instance.SwitchLevels(levelName);
+    GameManager.Instance.SwitchLevels(levelName);
+  }
+
+  void Update() {
+    if (!colliding || autoActivate) return;
+
+    if (GameManager.Instance.GetAxisDownPos("Interact")) Activate();
+  }
+
+  void OnTriggerEnter2D(Collider2D other) {
+    if (!enabled || other.GetComponent<Player>() == null) return;
+
+    if (autoActivate) Activate();
+    else {
+      colliding = true;
+      return;
     }
+  }
+
+  void OnTriggerExit2D(Collider2D other) {
+    if (!enabled || other.GetComponent<Player>() == null) return;
+
+    if (!autoActivate) colliding = false;
   }
 }

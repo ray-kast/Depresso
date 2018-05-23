@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Scenes/Level1
+  autoActivate: 1
 --- !u!212 &212068812018921990
 SpriteRenderer:
   m_ObjectHideFlags: 1

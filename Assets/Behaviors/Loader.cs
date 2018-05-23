@@ -14,5 +14,7 @@ public class Loader : MonoBehaviour {
     var follow = cameraInst.GetComponent<FollowCam>();
     follow.target = playerInst.transform;
     follow.enabled = true;
+
+    Debug.Log(GameManager.Instance.ProgressMade ? "Hey, we made progress!" : "No progress was made.");
   }
 }

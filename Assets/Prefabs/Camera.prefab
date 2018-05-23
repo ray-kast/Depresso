@@ -112,6 +112,7 @@ MonoBehaviour:
   fac1: 0
   fac2: 0
   fac3: 0
+  gray: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &114986242613785848
 MonoBehaviour:
   m_ObjectHideFlags: 1

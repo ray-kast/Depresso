@@ -11,6 +11,8 @@ public class ColorPostFX : MonoBehaviour {
   [Range(0.0f, 1.0f)]
   public float fac1, fac2, fac3;
 
+  public Color gray;
+
   void OnEnable() {
     matFactory = new MaterialFactory();
   }
@@ -21,6 +23,7 @@ public class ColorPostFX : MonoBehaviour {
     mat.SetFloat("_Fac1", fac1);
     mat.SetFloat("_Fac2", fac2);
     mat.SetFloat("_Fac3", fac3);
+    mat.SetColor("_Gray", gray);
 
     Graphics.Blit(src, dst, mat);
   }

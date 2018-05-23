@@ -209,6 +209,16 @@ Prefab:
       propertyPath: m_Name
       value: ExitDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212068812018921990, guid: e720ead8a266f7b4c83c71f65e141168,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e720ead8a266f7b4c83c71f65e141168, type: 2}
   m_IsPrefabParent: 0
