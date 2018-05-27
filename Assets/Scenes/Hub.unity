@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 3
-  xVelocity: 2
+  xVelocity: 5
   offset: 1
 --- !u!61 &1475107911
 BoxCollider2D:
