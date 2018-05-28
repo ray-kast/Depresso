@@ -1,18 +1,20 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D)), DisallowMultipleComponent]
 public class Player : MonoBehaviour {
-	void Update () {
-		var body = GetComponent<Rigidbody2D>();
+  public float speed, pickup, jumpPower;
 
-		var vel = body.velocity;
+  void Update() {
+    var body = GetComponent<Rigidbody2D>();
 
-		vel.x = Input.GetAxisRaw("Horizontal") * 5.0f;
+    var vel = body.velocity;
 
-    if (Input.GetButtonDown("Jump")) vel.y = 5.0f;
+    vel.x = Mathf.Lerp(Input.GetAxisRaw("Horizontal") * speed, vel.x, Mathf.Exp(-Time.deltaTime * pickup));
 
-		body.velocity = vel;
-	}
+    if (GameManager.Instance.GetAxisDownPos("Jump")) vel.y = jumpPower;
+
+    body.velocity = vel;
+  }
 }
