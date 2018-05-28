@@ -14,17 +14,15 @@ public class Platform : MonoBehaviour {
   bool directionRight = true;		
   int changeDirectionLock = 0;
 
+
   void Start () {
     origin = transform.position;
     var body = GetComponent<Rigidbody2D>();		
     body.velocity = new Vector3(xVelocity, 0.0f, 0.0f);
-    Debug.Log("Start");    
-    
   }
   
   void Update () {
     var body = GetComponent<Rigidbody2D>();
-    // transform.position = body.transform.position - Vector3.forward * 10f;
 
     if(changeDirectionLock > 0) {
       changeDirectionLock--;
@@ -32,19 +30,10 @@ public class Platform : MonoBehaviour {
       directionRight = !directionRight;
       changeDirectionLock = 3;
     }
-
     if (directionRight) {
       body.velocity = new Vector3(xVelocity, 0.0f, 0.0f);		
     } else {
       body.velocity = new Vector3(-xVelocity, 0.0f, 0.0f);		
     }
-  }
-
-  void OnCollisionEnter(Collision otherObj) {
-    Debug.Log("Enter");    
-    Debug.Log(otherObj.gameObject.tag);
-    // if (otherObj.gameObject.name == "Hero") {
-      // Destroy(gameObject,.5f);
-    // }
   }
 }
