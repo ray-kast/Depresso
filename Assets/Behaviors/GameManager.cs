@@ -16,13 +16,13 @@ public class GameManager : MonoBehaviour {
 
   GameProgress progress = GameProgress.None;
   bool progressMade = false;
-  Dictionary<string, int> axisSigns = new Dictionary<string, int>(),
-    prevAxisSigns = new Dictionary<string, int>();
+  private readonly Dictionary<string, int> axisSigns = new Dictionary<string, int>();
+  private readonly Dictionary<string, int> prevAxisSigns = new Dictionary<string, int>();
 
   public GameProgress Progress { get { return progress; } }
   public bool ProgressMade {
     get {
-      var ret = progressMade;
+      bool ret = progressMade;
       progressMade = false;
       return ret;
     }
@@ -56,19 +56,19 @@ public class GameManager : MonoBehaviour {
   }
 
   public bool GetAxisDownPos(string name) {
-    var x = axisSigns[name];
+    int x = axisSigns[name];
     return x > 0 && x > prevAxisSigns[name];
   }
 
   public bool GetAxisDownNeg(string name) {
-    var x = axisSigns[name];
+    int x = axisSigns[name];
     return x < 0 && x < prevAxisSigns[name];
   }
 
   public void SwitchLevels(string levelName) {
     Debug.Log(string.Format("Loading level '{0}'...", levelName));
 
-    var op = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
+    AsyncOperation op = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
 
     if (op == null) Debug.LogError("Failed to load scene.");
     else op.completed += o => Debug.Log("Scene loaded.");
