@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour {
     else op.completed += o => Debug.Log("Scene loaded.");
   }
 
+  public void ResetLevel() { SwitchLevels(SceneManager.GetActiveScene().path); }
+
   public void SetProgress(GameProgress value) {
     if ((int)value > (int)progress) {
       Debug.Log(string.Format("Set progress to {0}", value));
