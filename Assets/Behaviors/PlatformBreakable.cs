@@ -14,11 +14,10 @@ public class PlatformBreakable : MonoBehaviour {
   
   void Update () {
 
-    if(aboutToBreak) {
+    if (aboutToBreak) {
       breakTimeCount += Time.deltaTime;
       if (breakTimeCount > breakTime) 
       {
-        //Cannon ball bomb explodes
         breakSelf();
         breakTimeCount = 0f;
         aboutToBreak = false;
@@ -37,6 +36,11 @@ public class PlatformBreakable : MonoBehaviour {
 
   void breakSelf() {
     Debug.Log("breakSelf()");
+    // STUB FOR ANIMATION
+    // GetComponent<Animator>().SetTrigger("break");
+    
+    // DON'T KNOW WHY THIS LINE DOESN'T WORK
+    // GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, -6.0f));
     Destroy(GetComponent<BoxCollider2D>());
     Destroy(gameObject,5.0f);
   } 
