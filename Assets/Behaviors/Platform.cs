@@ -11,29 +11,25 @@ public class Platform : MonoBehaviour {
 
   Vector3 origin = new Vector3(100.0f, 0.0f, 0.0f);
 
-  bool directionRight = true;		
+  bool directionRight = true;
   int changeDirectionLock = 0;
 
-
-  void Start () {
+  void Start() {
     origin = transform.position;
-    var body = GetComponent<Rigidbody2D>();		
+
+    var body = GetComponent<Rigidbody2D>();
     body.velocity = new Vector3(xVelocity, 0.0f, 0.0f);
   }
-  
-  void Update () {
+
+  void Update() {
     var body = GetComponent<Rigidbody2D>();
 
-    if(changeDirectionLock > 0) {
-      changeDirectionLock--;
-    } else if (Mathf.Abs(transform.position.x - origin.x - offset) > range) {
+    if (changeDirectionLock > 0) changeDirectionLock--;
+    else if (Mathf.Abs(transform.position.x - origin.x - offset) > range) {
       directionRight = !directionRight;
       changeDirectionLock = 3;
     }
-    if (directionRight) {
-      body.velocity = new Vector3(xVelocity, 0.0f, 0.0f);		
-    } else {
-      body.velocity = new Vector3(-xVelocity, 0.0f, 0.0f);		
-    }
+
+    body.velocity = new Vector3(directionRight ? xVelocity : -xVelocity, 0.0f, 0.0f);
   }
 }

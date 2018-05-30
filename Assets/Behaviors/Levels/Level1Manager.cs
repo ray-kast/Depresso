@@ -6,8 +6,6 @@ public class Level1Manager : MonoBehaviour {
   public Door exitDoor;
 
   void Awake() {
-    Debug.Log("Hello from Level 1!");
-
     exitDoor.BeforeEnter += () => GameManager.Instance.SetProgress(GameProgress.Red);
   }
 }

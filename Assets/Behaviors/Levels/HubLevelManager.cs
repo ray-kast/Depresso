@@ -6,8 +6,6 @@ public class HubLevelManager : MonoBehaviour {
   public Door redDoor, greenDoor, blueDoor, completeDoor;
 
   void Awake() {
-    Debug.Log("Hello from the hub!");
-
     switch (GameManager.Instance.Progress) {
       case GameProgress.Blue: break;
       case GameProgress.Green: // TODO: Do more to disable the last level

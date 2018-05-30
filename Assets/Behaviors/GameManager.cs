@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,9 @@ public class GameManager : MonoBehaviour {
 
   GameProgress progress = GameProgress.None;
   bool progressMade = false;
-  private readonly Dictionary<string, int> axisSigns = new Dictionary<string, int>();
-  private readonly Dictionary<string, int> prevAxisSigns = new Dictionary<string, int>();
+  readonly Dictionary<string, int> axisSigns = new Dictionary<string, int>();
+  readonly Dictionary<string, int> prevAxisSigns = new Dictionary<string, int>();
+  IEnumerator switchLevelProc;
 
   public GameProgress Progress { get { return progress; } }
   public bool ProgressMade {
@@ -65,20 +67,46 @@ public class GameManager : MonoBehaviour {
     return x < 0 && x < prevAxisSigns[name];
   }
 
-  public void SwitchLevels(string levelName) {
-    Debug.Log(string.Format("Loading level '{0}'...", levelName));
+  IEnumerator SwitchLevelProc(string levelName) {
+    IEnumerator e = CamController.MainCamera.GetComponent<ColorPostFX>().FadeOut(0.7f, Color.black);
+
+    while (e.MoveNext()) yield return e.Current;
 
     AsyncOperation op = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
 
+    bool newCam = false;
+    Action a = () => newCam = true;
+
     if (op == null) Debug.LogError("Failed to load scene.");
-    else op.completed += o => Debug.Log("Scene loaded.");
+
+    CamController.OnCamSwitch += a;
+
+    while (!newCam) yield return null; // Spin-waiting is dumb but I have no other options
+
+    CamController.OnCamSwitch -= a;
+
+    e = CamController.MainCamera.GetComponent<ColorPostFX>().FadeIn(0.3f, Color.black);
+
+    while (e.MoveNext()) yield return e.Current;
+
+    switchLevelProc = null;
+  }
+
+  public bool SwitchLevels(string levelName) {
+    if (switchLevelProc != null) {
+      Debug.LogWarning("Denying level switch for '" + levelName + "'");
+      return false;
+    }
+
+    StartCoroutine(switchLevelProc = SwitchLevelProc(levelName));
+
+    return true;
   }
 
   public void ResetLevel() { SwitchLevels(SceneManager.GetActiveScene().path); }
 
   public void SetProgress(GameProgress value) {
     if ((int)value > (int)progress) {
-      Debug.Log(string.Format("Set progress to {0}", value));
       progress = value;
       progressMade = true;
     }
