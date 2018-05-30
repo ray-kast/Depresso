@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,22 @@ public class CamController : MonoBehaviour {
     { GameProgress.Complete, new Color(1.00f, 0.95f, 0.55f) },
   };
 
+  public static CamController MainCamera { get { return mainCamera; } }
+
+  public static event Action OnCamSwitch {
+    add { onCamSwitch += value; }
+    remove { onCamSwitch -= value; }
+  }
+
+  static CamController mainCamera;
+  static event Action onCamSwitch;
+
   void Awake() {
-    Debug.Log(string.Format("Loading factors for progress {0}...", GameManager.Instance.Progress));
+    if (mainCamera != null && mainCamera != this) Debug.LogWarning("Replacing main camera!");
+
+    mainCamera = this;
+
+    if (onCamSwitch != null) onCamSwitch();
 
     var factors = palettes[GameManager.Instance.Progress];
 

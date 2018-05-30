@@ -9,9 +9,9 @@ public class Loader : MonoBehaviour {
   void Awake() {
     if (GameManager.Instance == null) Instantiate(gameManager);
 
-    var playerInst = Instantiate(player);
-    var cameraInst = Instantiate(camera);
-    var follow = cameraInst.GetComponent<FollowCam>();
+    GameObject playerInst = Instantiate(player);
+    GameObject cameraInst = Instantiate(camera);
+    FollowCam follow = cameraInst.GetComponent<FollowCam>();
     follow.target = playerInst.transform;
     follow.enabled = true;
 

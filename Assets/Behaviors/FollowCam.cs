@@ -9,7 +9,7 @@ public class FollowCam : MonoBehaviour {
 
   void Awake() {
     if (target != null) {
-      var pos = target.position;
+      Vector3 pos = target.position;
       pos.z = transform.position.z;
       transform.position = pos;
     }

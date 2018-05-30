@@ -13,6 +13,10 @@ public class ColorPostFX : MonoBehaviour {
 
   public Color gray;
 
+  float fade;
+  Color fadeTo;
+  IEnumerator fadeProc;
+
   void OnEnable() {
     matFactory = new MaterialFactory();
   }
@@ -24,7 +28,57 @@ public class ColorPostFX : MonoBehaviour {
     mat.SetFloat("_Fac2", fac2);
     mat.SetFloat("_Fac3", fac3);
     mat.SetColor("_Gray", gray);
+    mat.SetFloat("_Fade", fade);
+    mat.SetColor("_FadeTo", fadeTo);
 
     Graphics.Blit(src, dst, mat);
+  }
+
+  IEnumerator FadeInProc(float len) {
+    float t = 1.0f, speed = 1.0f / len;
+
+    var w = new WaitForEndOfFrame();
+
+    while (t >= 0.0f) {
+      t -= Time.deltaTime * speed;
+
+      fade = Mathf.Max(t, 0.0f);
+
+      yield return w;
+    }
+
+    fadeProc = null;
+  }
+
+  IEnumerator FadeOutProc(float len) {
+    float t = 0.0f, speed = 1.0f / len;
+
+    var w = new WaitForEndOfFrame();
+
+    while (t <= 1.0f) {
+      t += Time.deltaTime * speed;
+
+      fade = Mathf.Min(t, 1.0f);
+
+      yield return w;
+    }
+
+    fadeProc = null;
+  }
+
+  public IEnumerator FadeIn(float len, Color color) {
+    if (fadeProc != null) return null;
+
+    fadeTo = color;
+
+    return fadeProc = FadeInProc(len);
+  }
+
+  public IEnumerator FadeOut(float len, Color color) {
+    if (fadeProc != null) return null;
+
+    fadeTo = color;
+
+    return fadeProc = FadeOutProc(len);
   }
 }
