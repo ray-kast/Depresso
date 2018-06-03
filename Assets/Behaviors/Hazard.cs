@@ -5,10 +5,20 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour {
   void OnTriggerEnter2D(Collider2D other) {
-    GameManager.Instance.ResetLevel();
+    var player = other.GetComponent<Player>();
+
+    if (player != null) {
+      GameManager.Instance.ResetLevel();
+      player.controlsEnabled = false;
+    }
   }
 
   void OnCollisionEnter2D(Collision2D coll) {
-    GameManager.Instance.ResetLevel();
+    var player = coll.gameObject.GetComponent<Player>();
+
+    if (player != null) {
+      GameManager.Instance.ResetLevel();
+      player.controlsEnabled = false;
+    }
   }
 }

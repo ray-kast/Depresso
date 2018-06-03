@@ -5,14 +5,33 @@ using UnityEngine;
 [RequireComponent(typeof(Camera)), DisallowMultipleComponent]
 public class FollowCam : MonoBehaviour {
   public Transform target;
-  public float speed;
+  public float speed, camSize, dynamicZoom, zoomAttack, zoomDecay;
+
+  Camera cam;
+  Vector3 lastPos;
 
   void Awake() {
+    cam = GetComponent<Camera>();
+    cam.orthographicSize = camSize;
+
     if (target != null) {
       Vector3 pos = target.position;
       pos.z = transform.position.z;
       transform.position = pos;
+      lastPos = pos;
     }
+  }
+
+  void FixedUpdate() {
+    var pos = target.position;
+
+    var vel = (pos - lastPos) / Time.fixedDeltaTime;
+
+    var tgt = camSize * (1 + vel.magnitude * dynamicZoom);
+
+    cam.orthographicSize = Mathf.Lerp(tgt, cam.orthographicSize, Mathf.Exp(-Time.fixedDeltaTime * (cam.orthographicSize < tgt ? zoomAttack : zoomDecay)));
+
+    lastPos = pos;
   }
 
   void Update() {
