@@ -126,3 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 2
+  camSize: 3
+  dynamicZoom: 0.25
+  zoomAttack: 0.1
+  zoomDecay: 0.5

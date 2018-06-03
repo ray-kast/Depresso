@@ -9,11 +9,14 @@ public class Loader : MonoBehaviour {
   void Awake() {
     if (GameManager.Instance == null) Instantiate(gameManager);
 
-    GameObject playerInst = Instantiate(player);
-    GameObject cameraInst = Instantiate(camera);
-    FollowCam follow = cameraInst.GetComponent<FollowCam>();
-    follow.target = playerInst.transform;
-    follow.enabled = true;
+    var playerInst = Instantiate(player).GetComponent<Player>();
+    var cameraInst = Instantiate(camera).GetComponent<FollowCam>();
+
+    // Enable double-jump after the red level
+    if (GameManager.Instance.Progress >= GameProgress.Red) playerInst.airJumps = 1;
+
+    cameraInst.target = playerInst.transform;
+    cameraInst.enabled = true;
 
     Debug.Log(GameManager.Instance.ProgressMade ? "Hey, we made progress!" : "No progress was made.");
   }
