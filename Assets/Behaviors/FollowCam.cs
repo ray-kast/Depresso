@@ -23,18 +23,16 @@ public class FollowCam : MonoBehaviour {
   }
 
   void FixedUpdate() {
-    var pos = target.position;
+    var tgtPos = target.position;
 
-    var vel = (pos - lastPos) / Time.fixedDeltaTime;
+    var vel = (tgtPos - lastPos) / Time.fixedDeltaTime;
 
     var tgt = camSize * (1 + vel.magnitude * dynamicZoom);
 
     cam.orthographicSize = Mathf.Lerp(tgt, cam.orthographicSize, Mathf.Exp(-Time.fixedDeltaTime * (cam.orthographicSize < tgt ? zoomAttack : zoomDecay)));
 
-    lastPos = pos;
-  }
+    lastPos = tgtPos;
 
-  void Update() {
     var pos = Vector3.Lerp(target.position, transform.position, Mathf.Exp(-Time.deltaTime * speed));
 
     pos.z = transform.position.z;
