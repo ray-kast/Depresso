@@ -293,7 +293,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 23.338638, y: 5.942177}
+  m_Size: {x: 23.338638, y: 5.9613414}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -305,7 +305,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 387332077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.48, y: -3.989, z: 3}
+  m_LocalPosition: {x: 4.48, y: -3.979, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -815,6 +815,7 @@ Transform:
   - {fileID: 2131399915}
   - {fileID: 802380219}
   - {fileID: 1446562078}
+  - {fileID: 2070417639}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1031,6 +1032,98 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1271360824}
   m_Script: {fileID: 11500000, guid: 1851fd16935b6be4ba82a8c0d1e115af, type: 3}
+--- !u!1001 &2070417638
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1305049308}
+    m_Modifications:
+    - target: {fileID: 4532858045100864, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532858045100864, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532858045100864, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.088541634
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532858045100864, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532858045100864, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532858045100864, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532858045100864, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532858045100864, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114094796439180, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+      propertyPath: m_Name
+      value: Ground (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212968648167777374, guid: cf3114707f10b6f4dbbf51c352088fd2,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 3.37988
+      objectReference: {fileID: 0}
+    - target: {fileID: 212968648167777374, guid: cf3114707f10b6f4dbbf51c352088fd2,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.3230689
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 61223699797281938, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: cf3114707f10b6f4dbbf51c352088fd2, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &2070417639 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4532858045100864, guid: cf3114707f10b6f4dbbf51c352088fd2,
+    type: 2}
+  m_PrefabInternal: {fileID: 2070417638}
+--- !u!1 &2070417640 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1114094796439180, guid: cf3114707f10b6f4dbbf51c352088fd2,
+    type: 2}
+  m_PrefabInternal: {fileID: 2070417638}
+--- !u!61 &2070417641
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2070417640}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 3.37988, y: 0.3230689}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  serializedVersion: 2
+  m_Size: {x: 3.37988, y: 0.3230689}
+  m_EdgeRadius: 0
 --- !u!1001 &2095860345
 Prefab:
   m_ObjectHideFlags: 0
