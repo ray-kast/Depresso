@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212068812018921990}
   - component: {fileID: 61325269249454042}
   - component: {fileID: 114775686234978344}
+  - component: {fileID: 114038937839170804}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -65,8 +66,19 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.64}
+  m_Size: {x: 1.6, y: 1.92}
   m_EdgeRadius: 0
+--- !u!114 &114038937839170804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719689756181052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b3399de9e24344ea5350aac072d5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114775686234978344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,7 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Scenes/Level1
-  autoActivate: 1
 --- !u!212 &212068812018921990
 SpriteRenderer:
   m_ObjectHideFlags: 1

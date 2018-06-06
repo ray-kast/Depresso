@@ -33,7 +33,7 @@ public class FollowCam : MonoBehaviour {
 
     lastPos = tgtPos;
 
-    var pos = Vector3.Lerp(target.position, transform.position, Mathf.Exp(-Time.deltaTime * speed));
+    var pos = Vector3.Lerp(target.position, transform.position, Mathf.Exp(-Time.fixedDeltaTime * speed));
 
     pos.z = transform.position.z;
 
