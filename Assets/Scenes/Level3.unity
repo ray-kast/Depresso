@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
-  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -55,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -212,11 +212,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4073632704358424, guid: e720ead8a266f7b4c83c71f65e141168, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 19.81
+      value: 14.13
       objectReference: {fileID: 0}
     - target: {fileID: 4073632704358424, guid: e720ead8a266f7b4c83c71f65e141168, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.22
+      value: -0.32
       objectReference: {fileID: 0}
     - target: {fileID: 4073632704358424, guid: e720ead8a266f7b4c83c71f65e141168, type: 2}
       propertyPath: m_LocalPosition.z
@@ -273,11 +273,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4487849178806404, guid: 11c32b03d8b3443438700436e4eb0915, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 16.222
+      value: 11.13
       objectReference: {fileID: 0}
     - target: {fileID: 4487849178806404, guid: 11c32b03d8b3443438700436e4eb0915, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.341
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 4487849178806404, guid: 11c32b03d8b3443438700436e4eb0915, type: 2}
       propertyPath: m_LocalPosition.z
