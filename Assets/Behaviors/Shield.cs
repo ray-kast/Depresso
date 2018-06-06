@@ -17,9 +17,9 @@ public class Shield : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
-		var butterflyScirpt = coll.gameObject.GetComponent<Butterfly>();
-    if (butterflyScirpt != null) {		
-			butterflyScirpt.Die();
+		var butterflyScript = coll.gameObject.GetComponent<Butterfly>();
+    if (butterflyScript != null) {		
+			butterflyScript.Die();
 		}
   }
 }
