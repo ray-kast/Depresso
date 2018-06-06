@@ -333,8 +333,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c04d83015697e5d42937ab6491f44e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   redDoor: {fileID: 519052957}
   greenDoor: {fileID: 40247610}
   blueDoor: {fileID: 1936131997}

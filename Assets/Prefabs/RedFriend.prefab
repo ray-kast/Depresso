@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4030106994334362}
   - component: {fileID: 212394581212141516}
   - component: {fileID: 61338946948027488}
+  - component: {fileID: 114728757783335434}
+  - component: {fileID: 114424920672971832}
   m_Layer: 0
   m_Name: RedFriend
   m_TagString: Untagged
@@ -64,8 +66,30 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2609043, y: 0.6099853}
+  m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &114424920672971832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351244551239188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b3399de9e24344ea5350aac072d5f1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!114 &114728757783335434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351244551239188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c103035f62c804fb5ec427ba0c8571, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!212 &212394581212141516
 SpriteRenderer:
   m_ObjectHideFlags: 1
