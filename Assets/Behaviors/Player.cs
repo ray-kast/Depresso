@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
   public float speed, pickup, jumpPower;
   public int airJumps;
   public bool controlsEnabled;
+  public GameObject shield;
 
   BoxCollider2D box;
   bool doJump, onGround, wasOnGround;
@@ -19,6 +20,11 @@ public class Player : MonoBehaviour {
     wasOnGround = false;
     jumpsLeft = airJumps;
     move = 0.0f;
+
+    var shieldObj = Instantiate(shield);
+    Debug.Log(shieldObj);
+    shieldObj.transform.parent = transform;
+    shieldObj.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
   }
 
   void FixedUpdate() {
