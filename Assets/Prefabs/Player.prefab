@@ -102,6 +102,7 @@ MonoBehaviour:
   speed: 5
   pickup: 20
   jumpPower: 5
+  airJumps: 0
   controlsEnabled: 1
 --- !u!212 &212378343053381124
 SpriteRenderer:
