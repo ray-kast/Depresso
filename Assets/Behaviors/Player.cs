@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
   bool doJump, onGround, wasOnGround;
   int jumpsLeft;
   float move;
+  HashSet<Interactable> interactables = new HashSet<Interactable>();
 
   void Awake() {
     box = GetComponent<BoxCollider2D>();
@@ -67,11 +68,29 @@ public class Player : MonoBehaviour {
 
     move = Mathf.Lerp(Input.GetAxisRaw("Horizontal") * speed * (controlsEnabled ? 1.0f : 0.0f), move, Mathf.Exp(-Time.deltaTime * pickup));
 
-    if (controlsEnabled && GameManager.Instance.GetAxisDownPos("Jump")) {
-      if (onGround || jumpsLeft > 0) doJump = true;
+    if (controlsEnabled) {
+      if (GameManager.Instance.GetAxisDownPos("Jump")) {
+        if (onGround || jumpsLeft > 0) doJump = true;
 
-      if (onGround) jumpsLeft = airJumps;
-      else if (jumpsLeft > 0) --jumpsLeft;
+        if (onGround) jumpsLeft = airJumps;
+        else if (jumpsLeft > 0) --jumpsLeft;
+      }
+
+      if (GameManager.Instance.GetAxisDownPos("Interact")) {
+        foreach (var inter in interactables) inter.Interact(gameObject);
+      }
     }
+  }
+
+  void OnTriggerEnter2D(Collider2D other) {
+    var inter = other.GetComponent<Interactable>();
+
+    if (inter != null) interactables.Add(inter);
+  }
+
+  void OnTriggerExit2D(Collider2D other) {
+    var inter = other.GetComponent<Interactable>();
+
+    if (inter != null) interactables.Remove(inter);
   }
 }
