@@ -36,4 +36,10 @@ public class Butterfly : MonoBehaviour {
     // animator.SetTrigger("Die");
     Destroy(gameObject);
   }
+
+  void OnCollisionEnter2D(Collision2D coll) {
+    if (coll.gameObject.GetComponent<Player>() != null) {
+      Destroy(gameObject);
+    }
+  }
 }
