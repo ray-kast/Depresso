@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -311,6 +311,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78e8a8e90ba8eb04a90a46fd58dbd832, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &413880516 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114713792624125810, guid: 78e8a8e90ba8eb04a90a46fd58dbd832,
+    type: 2}
+  m_PrefabInternal: {fileID: 413880515}
+  m_Script: {fileID: 11500000, guid: 73c103035f62c804fb5ec427ba0c8571, type: 3}
 --- !u!1001 &567301178
 Prefab:
   m_ObjectHideFlags: 0
@@ -720,10 +726,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1503532011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdc5a2b2c1ca184e8e7e269ed3054fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 94d48b8b7a9a35342ad329ea603951b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitDoor: {fileID: 53530707}
+  friend: {fileID: 413880516}
+  exit: {fileID: 53530707}
 --- !u!4 &1503532013
 Transform:
   m_ObjectHideFlags: 0

@@ -30,13 +30,7 @@ public class CamController : MonoBehaviour {
   static CamController mainCamera;
   static event Action onCamSwitch;
 
-  void Awake() {
-    if (mainCamera != null && mainCamera != this) Debug.LogWarning("Replacing main camera!");
-
-    mainCamera = this;
-
-    if (onCamSwitch != null) onCamSwitch();
-
+  void SetColors() {
     var factors = palettes[GameManager.Instance.Progress];
 
     var postFX = GetComponent<ColorPostFX>();
@@ -44,5 +38,20 @@ public class CamController : MonoBehaviour {
     postFX.fac2 = factors[1];
     postFX.fac3 = factors[2];
     postFX.gray = grays[GameManager.Instance.Progress];
+  }
+
+  void Awake() {
+    if (mainCamera != null && mainCamera != this) Debug.LogWarning("Replacing main camera!");
+
+    mainCamera = this;
+
+    if (onCamSwitch != null) onCamSwitch();
+
+    SetColors();
+
+    GameManager.Instance.ProgressChanged += () => {
+      Debug.Log("Updating camera colors...");
+      SetColors();
+    };
   }
 }
