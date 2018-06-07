@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour {
   public Door exit;
 
   void Awake() {
-    exit.enabled = false;
+    exit.enabled = !friend.WouldMakeProgress;
 
     friend.Trigger += () => exit.enabled = true;
   }

@@ -9,6 +9,8 @@ public class Friend : MonoBehaviour {
 
   bool triggered = false;
 
+  public bool WouldMakeProgress { get { return GameManager.Instance.Progress < targetProgress; } }
+
   event Action trigger;
 
   public event Action Trigger {
@@ -17,7 +19,7 @@ public class Friend : MonoBehaviour {
   }
 
   void Awake() {
-    triggered = false;
+    triggered = !WouldMakeProgress;
   }
 
   IEnumerator InteractionSequence(Player player) {
