@@ -37,9 +37,4 @@ public class Butterfly : MonoBehaviour {
     Destroy(gameObject);
   }
 
-  void OnCollisionEnter2D(Collision2D coll) {
-    if (coll.gameObject.GetComponent<Player>() != null) {
-      Destroy(gameObject);
-    }
-  }
 }
