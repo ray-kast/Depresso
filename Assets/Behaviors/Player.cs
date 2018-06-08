@@ -85,7 +85,9 @@ public class Player : MonoBehaviour {
       }
     }
 
-    shield.gameObject.SetActive(controlsEnabled && Input.GetAxisRaw("Shield") > 0.0f);
+    if (controlsEnabled && Input.GetAxisRaw("Shield") > 0.0f) {
+      shield.Activate();
+    }
 
     if (GameManager.Instance.GetAxisDownPos("Interact")) {
       foreach (var inter in interactables) inter.Interact(gameObject);
