@@ -9,7 +9,12 @@ public class Friend : MonoBehaviour {
 
   bool triggered = false;
 
-  public bool WouldMakeProgress { get { return GameManager.Instance.Progress < targetProgress; } }
+  public bool WouldMakeProgress {
+    get {
+      if (GameManager.Instance == null) return true;
+      return GameManager.Instance.Progress < targetProgress;
+    }
+  }
 
   event Action trigger;
 
