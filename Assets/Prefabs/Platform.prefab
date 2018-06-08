@@ -83,7 +83,7 @@ BoxCollider2D:
     newSize: {x: 3, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
-    adaptiveTiling: 0
+    adaptiveTiling: 1
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 3, y: 0.16}
@@ -144,6 +144,6 @@ SpriteRenderer:
   m_DrawMode: 2
   m_Size: {x: 3, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
+  m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
