@@ -18,7 +18,5 @@ public class HubLevelManager : MonoBehaviour {
         greenDoor.enabled = false;
         goto case GameProgress.Red;
     }
-
-    completeDoor.BeforeEnter += () => GameManager.Instance.SetProgress(GameProgress.Complete);
   }
 }

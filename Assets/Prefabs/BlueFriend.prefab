@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4487849178806404}
   - component: {fileID: 212471270763086704}
   - component: {fileID: 61760066635388086}
+  - component: {fileID: 114986701120815548}
+  - component: {fileID: 114853988146395860}
   m_Layer: 0
   m_Name: BlueFriend
   m_TagString: Untagged
@@ -66,6 +68,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.26460266, y: 0.42508692}
   m_EdgeRadius: 0
+--- !u!114 &114853988146395860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620780825405920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c103035f62c804fb5ec427ba0c8571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetProgress: 3
+--- !u!114 &114986701120815548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620780825405920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b3399de9e24344ea5350aac072d5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212471270763086704
 SpriteRenderer:
   m_ObjectHideFlags: 1

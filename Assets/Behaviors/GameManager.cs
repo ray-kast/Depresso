@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
   readonly Dictionary<string, int> axisSigns = new Dictionary<string, int>();
   readonly Dictionary<string, int> prevAxisSigns = new Dictionary<string, int>();
   IEnumerator switchLevelProc;
+  WeakEvent progressChanged;
 
   public GameProgress Progress { get { return progress; } }
   public bool ProgressMade {
@@ -30,6 +31,13 @@ public class GameManager : MonoBehaviour {
     }
   }
 
+  Action ProgressChangedEvent { get { return (Action)progressChanged.GetDelegate(); } }
+
+  public event Action ProgressChanged {
+    add { progressChanged.Add(value); }
+    remove { progressChanged.Remove(value); }
+  }
+
   int GetAxisSign(float axis) {
     if (Mathf.Abs(axis) < 1e-5) return 0;
     return (int)Mathf.Sign(axis);
@@ -38,6 +46,8 @@ public class GameManager : MonoBehaviour {
   void Awake() {
     if (Instance == null) Instance = this;
     else if (Instance != this) Destroy(gameObject);
+
+    progressChanged = new WeakEvent();
 
     DontDestroyOnLoad(gameObject);
     axisSigns["Jump"] = GetAxisSign(Input.GetAxisRaw("Jump"));
@@ -109,6 +119,8 @@ public class GameManager : MonoBehaviour {
     if ((int)value > (int)progress) {
       progress = value;
       progressMade = true;
+      var evt = ProgressChangedEvent;
+      if (evt != null) evt();
     }
   }
 }

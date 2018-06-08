@@ -7,13 +7,14 @@ public class Player : MonoBehaviour {
   public float speed, pickup, jumpPower;
   public int airJumps;
   public bool controlsEnabled;
-  public GameObject shield;
+  public GameObject shieldProto;
 
   BoxCollider2D box;
   bool doJump, onGround, wasOnGround;
   int jumpsLeft;
   float move;
   HashSet<Interactable> interactables = new HashSet<Interactable>();
+  Shield shield;
 
   void Awake() {
     box = GetComponent<BoxCollider2D>();
@@ -22,14 +23,15 @@ public class Player : MonoBehaviour {
     jumpsLeft = airJumps;
     move = 0.0f;
 
-    var shieldObj = Instantiate(shield);
-    Debug.Log(shieldObj);
+    var shieldObj = Instantiate(shieldProto);
     shieldObj.transform.parent = transform;
-    shieldObj.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+    shield = shieldObj.GetComponent<Shield>();
   }
 
   void FixedUpdate() {
     {
+      wasOnGround = onGround;
+
       var hits = new RaycastHit2D[1];
 
       var size = box.size;
@@ -48,9 +50,9 @@ public class Player : MonoBehaviour {
           useNormalAngle = false,
           useTriggers = false,
         }, hits, 0.001f) > 0;
-
-      wasOnGround = onGround;
     }
+
+    if (!onGround && wasOnGround) jumpsLeft = airJumps;
 
     {
       var body = GetComponent<Rigidbody2D>();
@@ -81,10 +83,12 @@ public class Player : MonoBehaviour {
         if (onGround) jumpsLeft = airJumps;
         else if (jumpsLeft > 0) --jumpsLeft;
       }
+    }
 
-      if (GameManager.Instance.GetAxisDownPos("Interact")) {
-        foreach (var inter in interactables) inter.Interact(gameObject);
-      }
+    shield.gameObject.SetActive(controlsEnabled && Input.GetAxisRaw("Shield") > 0.0f);
+
+    if (GameManager.Instance.GetAxisDownPos("Interact")) {
+      foreach (var inter in interactables) inter.Interact(gameObject);
     }
   }
 

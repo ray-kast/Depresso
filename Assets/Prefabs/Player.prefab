@@ -104,7 +104,8 @@ MonoBehaviour:
   jumpPower: 5
   airJumps: 0
   controlsEnabled: 1
-  shield: {fileID: 1532483727485272, guid: ddaea03e08ae00f4198a8d7cee01f0c2, type: 2}
+  shieldProto: {fileID: 1532483727485272, guid: ddaea03e08ae00f4198a8d7cee01f0c2,
+    type: 2}
 --- !u!212 &212378343053381124
 SpriteRenderer:
   m_ObjectHideFlags: 1
