@@ -36,4 +36,5 @@ public class Butterfly : MonoBehaviour {
     // animator.SetTrigger("Die");
     Destroy(gameObject);
   }
+
 }
