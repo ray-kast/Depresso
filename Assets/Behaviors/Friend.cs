@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Interactable)), DisallowMultipleComponent]
+[RequireComponent(typeof(Interactable), typeof(AudioSource)), DisallowMultipleComponent]
 public class Friend : MonoBehaviour {
   public GameProgress targetProgress;
 
@@ -28,6 +28,7 @@ public class Friend : MonoBehaviour {
     yield return new WaitForSeconds(1.0f);
 
     GameManager.Instance.SetProgress(targetProgress);
+    GetComponent<AudioSource>().Play();
 
     yield return new WaitForSeconds(1.0f);
 
