@@ -454,6 +454,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 82801396065086442, guid: 9f898b00f008bdc42a7a7a13bd05a1ea,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82801396065086442, guid: 9f898b00f008bdc42a7a7a13bd05a1ea,
+        type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82801396065086442, guid: 9f898b00f008bdc42a7a7a13bd05a1ea,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c69406e76e53a384695528c466800927, type: 3}
+    - target: {fileID: 82801396065086442, guid: 9f898b00f008bdc42a7a7a13bd05a1ea,
+        type: 2}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82801396065086442, guid: 9f898b00f008bdc42a7a7a13bd05a1ea,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f898b00f008bdc42a7a7a13bd05a1ea, type: 2}
   m_IsPrefabParent: 0
