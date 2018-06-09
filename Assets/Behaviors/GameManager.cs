@@ -52,15 +52,18 @@ public class GameManager : MonoBehaviour {
     DontDestroyOnLoad(gameObject);
     axisSigns["Jump"] = GetAxisSign(Input.GetAxisRaw("Jump"));
     axisSigns["Interact"] = GetAxisSign(Input.GetAxisRaw("Interact"));
+    axisSigns["Shield"] = GetAxisSign(Input.GetAxisRaw("Shield"));
   }
 
   void UpdateAxes() {
     // TODO: Hard-coding this is stupid
     prevAxisSigns["Jump"]     = axisSigns["Jump"];
     prevAxisSigns["Interact"] = axisSigns["Interact"];
+    prevAxisSigns["Shield"] = axisSigns["Shield"];
 
     axisSigns["Jump"] = GetAxisSign(Input.GetAxisRaw("Jump"));
     axisSigns["Interact"] = GetAxisSign(Input.GetAxisRaw("Interact"));
+    axisSigns["Shield"] = GetAxisSign(Input.GetAxisRaw("Shield"));
   }
 
   void Update() {

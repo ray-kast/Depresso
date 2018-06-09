@@ -13,15 +13,15 @@ public class Shield : MonoBehaviour {
     Life cycle:
     Ready
     || event: spacebar input
-    Active 
+    Active
     || event: butterfly trigger, or
     || countdown: activeTime
     Cd
     || countdown: cooldownTime
-    Ready 
+    Ready
   */
   State state = State.Ready;
-  float activeTimeCount = 0.0f;  
+  float activeTimeCount = 0.0f;
   float cdTimeCount = 0.0f;
   float opac = 0.0f;
 
@@ -55,7 +55,7 @@ public class Shield : MonoBehaviour {
         opac = 0.0f;
         if (cdTimeCount > cooldownTime) {
           cdTimeCount = 0.0f;
-          state = State.Ready;          
+          state = State.Ready;
         }
         else {
           cdTimeCount += Time.deltaTime;
@@ -67,7 +67,6 @@ public class Shield : MonoBehaviour {
         break;
     }
 
-    Debug.Log(opac);
     this.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, opac);
   }
 

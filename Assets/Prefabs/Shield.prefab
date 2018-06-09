@@ -68,9 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ed4712d0fbe4a4192bd2a9c5fd2c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTime: 3
-  cooldownTime: 5
-  ReadyOpacity: 0.1
+  activeTime: 5
+  cooldownTime: 0.5
+  ReadyOpacity: 0.25
 --- !u!212 &212737967683521092
 SpriteRenderer:
   m_ObjectHideFlags: 1

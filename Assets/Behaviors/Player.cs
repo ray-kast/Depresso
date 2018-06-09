@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
   public float speed, pickup, jumpPower;
   public int airJumps;
   public bool controlsEnabled;
+  [SerializeField]
+  bool shieldEnabled;
   public GameObject shieldProto;
 
   BoxCollider2D box;
@@ -15,6 +17,15 @@ public class Player : MonoBehaviour {
   float move;
   HashSet<Interactable> interactables = new HashSet<Interactable>();
   Shield shield;
+
+  public bool ShieldEnabled {
+    get { return shieldEnabled; }
+    set {
+      shieldEnabled = value;
+
+      if (shield != null) shield.gameObject.SetActive(shieldEnabled);
+    }
+  }
 
   void Awake() {
     box = GetComponent<BoxCollider2D>();
@@ -26,6 +37,8 @@ public class Player : MonoBehaviour {
     var shieldObj = Instantiate(shieldProto);
     shieldObj.transform.parent = transform;
     shield = shieldObj.GetComponent<Shield>();
+
+    ShieldEnabled = shieldEnabled; // Force an update on awake
   }
 
   void FixedUpdate() {
@@ -39,8 +52,7 @@ public class Player : MonoBehaviour {
 
       const float HEIGHT = 0.1f;
 
-      // Assuming for now that box.offset == 0
-      var pos = new Vector2(transform.position.x, transform.position.y - 0.5f * (size.y - HEIGHT));
+      var pos = box.offset + new Vector2(transform.position.x, transform.position.y - 0.5f * (size.y - HEIGHT));
 
       onGround = Physics2D.BoxCast(pos, new Vector2(size.x, HEIGHT), 0.0f,
         Vector2.down, new ContactFilter2D {
@@ -85,7 +97,7 @@ public class Player : MonoBehaviour {
       }
     }
 
-    if (controlsEnabled && Input.GetAxisRaw("Shield") > 0.0f) {
+    if (controlsEnabled && shieldEnabled && GameManager.Instance.GetAxisDownPos("Shield")) {
       shield.Activate();
     }
 

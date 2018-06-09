@@ -13,6 +13,7 @@ public class Loader : MonoBehaviour {
     Debug.Log(player);
     // Enable double-jump after the red level
     if (GameManager.Instance.Progress >= GameProgress.Red) player.airJumps = 1;
+    if (GameManager.Instance.Progress >= GameProgress.Green) player.ShieldEnabled = true;
   }
 
   void Awake() {
